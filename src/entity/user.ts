@@ -45,4 +45,7 @@ export class User {
 
   @OneToMany(() => NotesAuditLog, (log) => log.user)
   auditLogs!: NotesAuditLog[];
+
+  @Column({ nullable: true })
+  country_code?: string;
 }

@@ -10,8 +10,10 @@
     "dev:hot": "nodemon --legacy-watch src/index.ts",
     "docker": "docker-compose up --build",
     "dev:test": "nodemon --legacy-watch --exec npx ts-node src/index.ts",
-    "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "npm run typeorm migration:generate -- -d src/config/database.ts -n"
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+    "migration:generate": "npm run typeorm -- migration:generate  -d src/config/database.ts  src/migrations/schema-update",
+    "migration:run": "npm run typeorm -- migration:run -d src/config/database.ts ",
+    "migration:revert": "npm run typeorm -- migration:revert -d src/config/database.ts "
   },
   "keywords": [],
   "author": "",

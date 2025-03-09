@@ -16,7 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 AppDataSource.initialize()
-  .then(() => {
+  .then(async () => {
+    await AppDataSource.runMigrations();
     console.log("Database connected");
   })
   .catch((err) => {
